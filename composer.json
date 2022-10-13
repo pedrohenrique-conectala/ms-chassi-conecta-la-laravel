@@ -1,0 +1,9 @@
+{
+    "name": "pedrohenrique-conectala/ms-chassi-conecta-la",
+    "require": {
+        "php": "^8.0",
+        "laravel/lumen-framework": "^9.0"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
