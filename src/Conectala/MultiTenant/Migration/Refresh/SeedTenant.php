@@ -9,7 +9,7 @@ class SeedTenant extends Command
     /**
      * Execute the console command.
      */
-    public function handle($command)
+    public static function handle($command)
     {
         if (app()->environment() !== 'production') {
             if ($command->option('option') === 'system') {

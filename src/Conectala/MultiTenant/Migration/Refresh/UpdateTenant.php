@@ -10,7 +10,7 @@ class UpdateTenant
     /**
      * Execute the console command.
      */
-    public function handle($command)
+    public static function handle($command)
     {
         if ($command->option('option') === 'system') {
             if (app()->environment() !== 'production') {
