@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Repositories;
+namespace Conectala\MultiTenant\Migration\Repositories;
 
-use App\Models\TenantClient;
+use Conectala\MultiTenant\Migration\Models\TenantClient;
+use App\Repositories\AbstractRepository;
 
 class TenantClientRepository extends AbstractRepository
 {
