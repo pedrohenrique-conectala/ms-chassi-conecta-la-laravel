@@ -1,6 +1,6 @@
 <?php
 
-namespace Conectala\MultiTenant\Migration\Seed;
+namespace Conectala\MultiTenant\Migration\Refresh;
 
 use Conectala\MultiTenant\TenantFacade as Tenant;
 
