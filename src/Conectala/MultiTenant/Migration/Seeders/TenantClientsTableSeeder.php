@@ -19,7 +19,7 @@ class TenantClientsTableSeeder extends Seeder
             [
                 [
                     'name'      => "Ambiente Conecta Lá",
-                    'database'  => "ms_shipping_conectala",
+                    'database'  => "ms_creating_replace_conectala",
                     'tenant'    => "conectala"
                 ]
             ]
