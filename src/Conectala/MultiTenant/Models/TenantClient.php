@@ -1,6 +1,6 @@
 <?php
 
-namespace Conectala\MultiTenant\Migration\Models;
+namespace Conectala\MultiTenant\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
