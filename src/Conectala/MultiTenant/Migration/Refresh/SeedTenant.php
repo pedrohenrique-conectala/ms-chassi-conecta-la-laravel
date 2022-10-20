@@ -4,7 +4,7 @@ namespace Conectala\MultiTenant\Migration\Refresh;
 
 use Conectala\MultiTenant\TenantFacade as Tenant;
 
-class SeedTenant extends Command
+class SeedTenant
 {
     /**
      * Execute the console command.
