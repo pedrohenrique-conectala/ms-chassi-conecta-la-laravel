@@ -8,7 +8,7 @@
     "prefer-stable": true,
     "autoload": {
         "psr-4": {
-            "Conectala\\": "src/Conectala"
+            "Conectala\\": "src/Conectala/"
         }
     }
 }
