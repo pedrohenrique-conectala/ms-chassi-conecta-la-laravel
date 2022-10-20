@@ -5,5 +5,10 @@
         "laravel/lumen-framework": "^9.0"
     },
     "minimum-stability": "dev",
-    "prefer-stable": true
+    "prefer-stable": true,
+    "autoload": {
+        "psr-4": {
+            "Conectala\\": "src/Conectala"
+        }
+    }
 }
