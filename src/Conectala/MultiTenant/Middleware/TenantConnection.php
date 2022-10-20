@@ -30,7 +30,6 @@ class TenantConnection
      */
     public function handle(Request $request, Closure $next): mixed
     {
-        //$tenant = $request->route('tenant') ?? explode('/', request()->getPathInfo())[1] ?? null;
         // Chamar cache para ganho de tempo.
         $tenantClient = $this->tenantClientRepository->getByReference('tenant', '=', getTenantRequest());
         if ($tenantClient) {
