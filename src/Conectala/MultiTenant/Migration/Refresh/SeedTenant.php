@@ -2,6 +2,7 @@
 
 namespace Conectala\MultiTenant\Migration\Refresh;
 
+use Conectala\MultiTenant\Models\TenantClient;
 use Conectala\MultiTenant\TenantFacade as Tenant;
 
 class SeedTenant
