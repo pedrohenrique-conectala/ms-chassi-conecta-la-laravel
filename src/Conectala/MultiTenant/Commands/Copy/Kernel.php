@@ -13,8 +13,9 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
-        'Conectala\MultiTenant\Migration\Refresh\UpdateTenant',
-        'Conectala\MultiTenant\Migration\Refresh\SeedTenant'
+        'App\Console\Commands\UpdateTenant',
+        'App\Console\Commands\RollbackTenant',
+        'App\Console\Commands\SeedTenant'
     ];
 
     /**
