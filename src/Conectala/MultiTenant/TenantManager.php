@@ -2,7 +2,7 @@
 
 namespace Conectala\MultiTenant;
 
-use Conectala\MultiTenant\Migration\Models\TenantClient;
+use Conectala\MultiTenant\Models\TenantClient;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\Config;
