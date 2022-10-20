@@ -8,7 +8,7 @@
 
 MS_NAME=$1
 
-MAIN_PATH=../../../../../../
+MAIN_PATH=./
 APP_PATH=$MAIN_PATH/app
 LIBRARY_PATH=$MAIN_PATH/vendor/pedrohenrique-conectala/ms-chassi-conecta-la/src/Conectala
 
