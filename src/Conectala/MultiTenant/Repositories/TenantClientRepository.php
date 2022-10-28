@@ -1,6 +1,6 @@
 <?php
 
-namespace Conectala\MultiTenant\Migration\Repositories;
+namespace Conectala\MultiTenant\Repositories;
 
 use Conectala\MultiTenant\Models\TenantClient;
 use App\Repositories\AbstractRepository;

@@ -1,8 +1,8 @@
 <?php
 
-namespace Conectala\MultiTenant\Migration\Middleware;
+namespace Conectala\MultiTenant\Middleware;
 
-use Conectala\MultiTenant\Migration\Repositories\TenantClientRepository;
+use Conectala\MultiTenant\Repositories\TenantClientRepository;
 use Conectala\MultiTenant\TenantFacade as Tenant;
 use Closure;
 use Illuminate\Http\Request;

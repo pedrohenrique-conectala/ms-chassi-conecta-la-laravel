@@ -20,7 +20,7 @@ $router->group(['prefix' => 'ms_creating_replace'], function () use ($router) {
         return $router->app->version();
     });
 
-    $router->group(['prefix' => '{tenant}/api', 'middleware' => 'Conectala\MultiTenant\Migration\Middleware\TenantConnection', 'namespace' => 'API'], function () use ($router) {
+    $router->group(['prefix' => '{tenant}/api', 'middleware' => 'Conectala\MultiTenant\Middleware\TenantConnection', 'namespace' => 'API'], function () use ($router) {
         $router->group(['prefix' => '{store}/v1', 'namespace' => 'v1'], function () use ($router) {
             //$router->post('', 'ExampleController@post');
         });
