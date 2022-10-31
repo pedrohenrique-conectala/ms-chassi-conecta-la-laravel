@@ -31,8 +31,9 @@ class TenantConnection
     public function handle(Request $request, Closure $next): mixed
     {
         // Chamar cache para ganho de tempo.
-        $tenantClient = $this->tenantClientRepository->getByReference('tenant', '=', getTenantRequest());
-        if ($tenantClient) {
+        $tenantClient = app('db')->select("SELECT * FROM `tenant_clients` WHERE `tenant` = '" . getTenantRequest() . "';");
+        if (!empty($tenantClient)) {
+            $tenantClient = $tenantClient[0];
             Tenant::setTenant($tenantClient);
         } else {
             if (str_contains($request->getRequestUri(), '/api')) {

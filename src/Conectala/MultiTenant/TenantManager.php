@@ -13,17 +13,17 @@ class TenantManager
     private $tenant;
 
     /**
-     * @return TenantClient
+     * @return object|null
      */
-    public function getTenant(): ?TenantClient
+    public function getTenant(): ?object
     {
         return $this->tenant;
     }
 
     /**
-     * @param TenantClient $tenant
+     * @param object|null $tenant
      */
-    public function setTenant(?TenantClient $tenant): void
+    public function setTenant(?object $tenant): void
     {
         $this->tenant = $tenant;
         $this->makeTenantConnection();
