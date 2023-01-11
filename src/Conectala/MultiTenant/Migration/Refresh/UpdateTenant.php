@@ -17,7 +17,8 @@ class UpdateTenant
             $command->warn("Running the migration on the system");
             $command->call('migrate', [
                 '--database' => 'system',
-                '--path' => 'database/migrations/system'
+                '--path' => 'database/migrations/system',
+                '--force'
             ]);
             $command->info("Migration in the system finished\n");
         } else if ($command->option('option') === 'tenant') {
