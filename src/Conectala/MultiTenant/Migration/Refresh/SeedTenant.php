@@ -12,30 +12,26 @@ class SeedTenant
      */
     public static function handle($command)
     {
-        if (app()->environment() !== 'production') {
-            if ($command->option('option') === 'system') {
-                $command->warn("Running seed system");
+        if ($command->option('option') === 'system') {
+            $command->warn("Running seed system");
+            $command->call('db:seed', [
+                '--class' => 'SystemDatabaseSeeder'
+            ]);
+            $command->info('Seed system finished');
+        } else if ($command->option('option') === 'tenant') {
+            Tenant::loadConnections();
+            $tenantClients = TenantClient::all();
+            $command->info("Seed system running to tenants:" . implode(',', $tenantClients->pluck('tenant')->toArray()) . "\n");
+            foreach ($tenantClients as $tenantClient) {
+                Tenant::setTenant($tenantClient);
+                $command->warn("Running seed on tenant:$tenantClient->tenant");
                 $command->call('db:seed', [
-                    '--class' => 'SystemDatabaseSeeder'
+                    '--database' => $tenantClient->tenant,
+                    '--class' => 'TenantDatabaseSeeder'
                 ]);
-                $command->info('Seed system finished');
-            } else if ($command->option('option') === 'tenant') {
-                Tenant::loadConnections();
-                $tenantClients = TenantClient::all();
-                $command->info("Seed system running to tenants:" . implode(',', $tenantClients->pluck('tenant')->toArray()) . "\n");
-                foreach ($tenantClients as $tenantClient) {
-                    Tenant::setTenant($tenantClient);
-                    $command->warn("Running seed on tenant:$tenantClient->tenant");
-                    $command->call('db:seed', [
-                        '--database' => $tenantClient->tenant,
-                        '--class' => 'TenantDatabaseSeeder'
-                    ]);
-                    $command->info("Seed tenant:$tenantClient->tenant finished\n");
-                }
-                $command->info('Seeding tenant finished');
+                $command->info("Seed tenant:$tenantClient->tenant finished\n");
             }
-        } else {
-            $command->error('You are production');
+            $command->info('Seeding tenant finished');
         }
     }
 }

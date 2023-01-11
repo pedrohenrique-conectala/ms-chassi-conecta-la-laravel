@@ -14,16 +14,12 @@ class UpdateTenant
     public static function handle($command)
     {
         if ($command->option('option') === 'system') {
-            if (app()->environment() !== 'production') {
-                $command->warn("Running the migration on the system");
-                $command->call('migrate', [
-                    '--database' => 'system',
-                    '--path' => 'database/migrations/system'
-                ]);
-                $command->info("Migration in the system finished\n");
-            } else {
-                $command->error('You are production');
-            }
+            $command->warn("Running the migration on the system");
+            $command->call('migrate', [
+                '--database' => 'system',
+                '--path' => 'database/migrations/system'
+            ]);
+            $command->info("Migration in the system finished\n");
         } else if ($command->option('option') === 'tenant') {
             if ($command->option('tenants') === 'all') {
                 $tenantClients = TenantClient::all();
@@ -44,7 +40,8 @@ class UpdateTenant
 
                 $params = [
                     '--database' => $tenantClient->tenant, // conexão decathlon
-                    '--path' => 'database/migrations/tenant'
+                    '--path' => 'database/migrations/tenant',
+                    '--force'
                 ];
 
                 /*
