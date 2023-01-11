@@ -16,7 +16,7 @@ class SeedTenant
             $command->warn("Running seed system");
             $command->call('db:seed', [
                 '--class' => 'SystemDatabaseSeeder',
-                '--force'
+                '--force' => true
             ]);
             $command->info('Seed system finished');
         } else if ($command->option('option') === 'tenant') {
@@ -29,7 +29,7 @@ class SeedTenant
                 $command->call('db:seed', [
                     '--database' => $tenantClient->tenant,
                     '--class' => 'TenantDatabaseSeeder',
-                    '--force'
+                    '--force' => true
                 ]);
                 $command->info("Seed tenant:$tenantClient->tenant finished\n");
             }

@@ -18,7 +18,7 @@ class UpdateTenant
             $command->call('migrate', [
                 '--database' => 'system',
                 '--path' => 'database/migrations/system',
-                '--force'
+                '--force' => true
             ]);
             $command->info("Migration in the system finished\n");
         } else if ($command->option('option') === 'tenant') {
@@ -42,7 +42,7 @@ class UpdateTenant
                 $params = [
                     '--database' => $tenantClient->tenant, // conexão decathlon
                     '--path' => 'database/migrations/tenant',
-                    '--force'
+                    '--force' => true
                 ];
 
                 /*
