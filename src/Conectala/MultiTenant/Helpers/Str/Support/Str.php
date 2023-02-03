@@ -18,10 +18,10 @@ class Str extends \Illuminate\Support\Str
 
     public static function toASCII($string): string
     {
-        return iconv(
-            'UTF-8',
-            'ASCII//TRANSLIT//IGNORE',
-            transliterator_transliterate('Any-Latin; Latin-ASCII', $string)
+        return mb_convert_encoding(
+            transliterator_transliterate('Any-Latin; Latin-ASCII', $string),
+            'ASCII',
+            'UTF-8'
         );
     }
 }
