@@ -1,21 +1,21 @@
 {
-    "name": "pedrohenrique-conectala/ms-chassi-conecta-la",
-    "require": {
-        "php": "^8.1",
-        "laravel/lumen-framework": "^9.0",
-        "mpconnect/cache-wrapper": "dev-master"
-    },
-    "minimum-stability": "dev",
-    "prefer-stable": true,
-    "autoload": {
-        "psr-4": {
-            "Conectala\\": "src/Conectala/"
-        }
-    },
-    "repositories": {
-        "gitlab.com/63219361": {
-            "type": "composer",
-            "url": "https://gitlab.com/api/v4/group/63219361/-/packages/composer/packages.json"
-        }
+  "name": "pedrohenrique-conectala/ms-chassi-conecta-la",
+  "require": {
+    "php": "^8.1",
+    "laravel/lumen-framework": "^9.0",
+    "mpconnect/cache-wrapper": "dev-master"
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "autoload": {
+    "psr-4": {
+      "Conectala\\": "src/Conectala/"
     }
+  },
+  "repositories": [
+    {
+      "type": "path",
+      "url": "repo/mpconnect/cache-wrapper"
+    }
+  ]
 }

@@ -1,0 +1,10 @@
+{
+  "name": "mpconnect/cache-wrapper",
+  "version": "dev-master",
+  "repositories": {
+    "gitlab.com/63219361": {
+      "type": "composer",
+      "url": "https://gitlab.com/api/v4/group/63219361/-/packages/composer/packages.json"
+    }
+  }
+}
