@@ -2,12 +2,12 @@
 
 namespace Conectala\MultiTenant\Models\Traits;
 
-use Illuminate\Support\Str;
+use Conectala\MultiTenant\Helpers\Str\Support\Str;
 
 trait Common
 {
     public function slugName(): string
     {
-        return Str::snake((new \ReflectionClass(static::class))->getShortName());
+        return Str::camelCaseSlugify((new \ReflectionClass(static::class))->getShortName());
     }
 }
