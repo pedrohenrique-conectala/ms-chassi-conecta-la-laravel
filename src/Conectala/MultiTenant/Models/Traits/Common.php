@@ -2,7 +2,7 @@
 
 namespace Conectala\MultiTenant\Models\Traits;
 
-use Conectala\MultiTenant\Helpers\Str\Support\Str;
+use Conectala\MultiTenant\Helpers\Formatters\Str;
 
 trait Common
 {

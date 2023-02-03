@@ -1,6 +1,6 @@
 <?php
 
-namespace Conectala\MultiTenant\Helpers\Str\Support;
+namespace Conectala\MultiTenant\Helpers\Formatters;
 
 class Str extends \Illuminate\Support\Str
 {
