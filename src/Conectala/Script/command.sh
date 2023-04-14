@@ -37,8 +37,6 @@ if [ ! -e "$APP_PATH/Http/Controllers/API/V1" ]; then
   mkdir -p "$APP_PATH/Http/Controllers/API/V1"
 fi;
 
-cp "$LIBRARY_PATH/MultiTenant/Migration/Migrations"/* "$MIGRATION_PATH_SYSTEM";
-
 if [ -n "$MS_NAME" ]; then
   cp "$LIBRARY_PATH/MultiTenant/Routes/web.php" "$MAIN_PATH/routes/web.php"
   sed -i "s/ms_creating_replace/$MS_NAME/g" "$MAIN_PATH/routes/web.php"
