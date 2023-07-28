@@ -10,7 +10,7 @@ MS_NAME=$1
 
 MAIN_PATH=./
 APP_PATH=$MAIN_PATH/app
-LIBRARY_PATH=$MAIN_PATH/vendor/pedrohenrique-conectala/ms-chassi-conecta-la/src/Conectala
+LIBRARY_PATH=$MAIN_PATH/vendor/pedrohenrique-conectala/ms-chassi-conecta-la-laravel/src/Conectala
 
 DATABASE_PATH=$MAIN_PATH/database
 
@@ -38,10 +38,9 @@ if [ ! -e "$APP_PATH/Http/Controllers/API/V1" ]; then
 fi;
 
 if [ -n "$MS_NAME" ]; then
-  cp "$LIBRARY_PATH/MultiTenant/Routes/web.php" "$MAIN_PATH/routes/web.php"
-  sed -i "s/ms_creating_replace/$MS_NAME/g" "$MAIN_PATH/routes/web.php"
+  cp "$LIBRARY_PATH/MultiTenant/Routes/api.php" "$MAIN_PATH/routes/api.php"
+  sed -i "s/ms_creating_replace/$MS_NAME/g" "$MAIN_PATH/routes/api.php"
   cp "$LIBRARY_PATH/MultiTenant/Commands/Copy/Kernel.php" "$APP_PATH/Console/Kernel.php";
-  cp "$LIBRARY_PATH/Config"/* "$CONFIG_PATH_LUMEN";
 
   sed -i "s/ms_creating_replace_conectala/ms_${MS_NAME}_conectala/g" "$DATABASE_PATH/seeders/TenantClientsTableSeeder.php"
 fi;
