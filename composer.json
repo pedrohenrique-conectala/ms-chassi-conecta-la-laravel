@@ -5,7 +5,6 @@
     "laravel/framework": "^10.0",
     "illuminate/redis": "^9.48",
     "predis/predis": "^2.1",
-    "bschmitt/laravel-amqp": "^2.1",
     "spatie/laravel-data": "^3.8"
   },
   "minimum-stability": "dev",
