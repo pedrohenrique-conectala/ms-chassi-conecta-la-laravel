@@ -2,11 +2,12 @@
 
 namespace Conectala\MultiTenant;
 
+use Conectala\Components\Events\EventApplication;
+use Conectala\Components\Listeners\EventApplicationListener;
 use Conectala\MultiTenant\Models\TenantClient;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\Config;
-use Illuminate\Http\Request;
 
 class TenantManager
 {
@@ -27,6 +28,11 @@ class TenantManager
     {
         $this->tenant = $tenant;
         $this->makeTenantConnection();
+        EventApplicationListener::dispatch(new EventApplication([
+            TenantManager::class,
+            'setTenant',
+            'after'
+        ]), $tenant);
     }
 
     private function makeTenantConnection()

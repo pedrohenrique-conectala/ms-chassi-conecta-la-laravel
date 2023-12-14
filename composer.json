@@ -2,13 +2,21 @@
   "name": "pedrohenrique-conectala/ms-chassi-conecta-la-laravel",
   "require": {
     "php": "^8.1",
-    "laravel/framework": "^10.0"
+    "laravel/framework": "^10.0",
+    "illuminate/redis": "^9.48",
+    "predis/predis": "^2.1",
+    "bschmitt/laravel-amqp": "^2.1",
+    "spatie/laravel-data": "^3.8"
   },
   "minimum-stability": "dev",
   "prefer-stable": true,
   "autoload": {
     "psr-4": {
       "Conectala\\": "src/Conectala/"
-    }
+    },
+    "files": [
+      "src/Conectala/MultiTenant/Helpers/FunctionsHelper.php",
+      "src/Conectala/Support/Helpers/LaravelFunctions.php"
+    ]
   }
 }

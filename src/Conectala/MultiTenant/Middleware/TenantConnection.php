@@ -2,6 +2,7 @@
 
 namespace Conectala\MultiTenant\Middleware;
 
+use Conectala\CacheWrapper\Wrappers\Cache;
 use Conectala\MultiTenant\Repositories\TenantClientRepository;
 use Conectala\MultiTenant\TenantFacade as Tenant;
 use Closure;
@@ -30,8 +31,20 @@ class TenantConnection
      */
     public function handle(Request $request, Closure $next): mixed
     {
-        // Chamar cache para ganho de tempo.
-        $tenantClient = app('db')->select("SELECT * FROM `tenant_clients` WHERE `tenant` = '" . getTenantRequest() . "';");
+        $tenantId = getTenantRequest();
+        if (empty($tenantId)) {
+            if (str_contains($request->getRequestUri(), '/api')) {
+                return response()->json(["error" => ["Tenant not found"]], 403);
+            }
+            abort(403, "Tenant not found");
+        }
+        $tenantClient = Cache::remember([
+            '!store_id' => null,
+            '!tenant' => null,
+            'auth_tenant_request:{value}' => $tenantId
+        ], function () use ($tenantId) {
+            return app('db')->select("SELECT * FROM `tenant_clients` WHERE `tenant` = '{$tenantId}';");
+        }, 3600);
         if (!empty($tenantClient)) {
             $tenantClient = $tenantClient[0];
             Tenant::setTenant($tenantClient);

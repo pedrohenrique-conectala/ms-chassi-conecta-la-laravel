@@ -27,4 +27,10 @@ class TenantClient extends Model
     {
         return $this->where('tenant', $tenant)->first();
     }
+
+    public function getAll()
+    {
+        return $this->get();
+    }
+
 }
